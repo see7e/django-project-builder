@@ -102,27 +102,25 @@ def create_django_project():
             if line.strip().startswith("'ENGINE'"):
                 f.write(f"        'ENGINE': 'django.db.backends.{database_type}',\n")
             elif line.strip().startswith("'NAME'"):
-                f.write(f"        'NAME': 'mydatabase',\n")
+                f.write("        'NAME': 'mydatabase',\n")
             elif line.strip().startswith("'USER'"):
                 if database_type == "sqlite3":
-                    f.write(f"        'USER': '',\n")
+                    f.write("        'USER': '',\n")
                 else:
-                    f.write(f"        'USER': 'postgres',\n")
+                    f.write("        'USER': 'postgres',\n")
             elif line.strip().startswith("'PASSWORD'"):
                 if database_type == "sqlite3":
-                    f.write(f"        'PASSWORD': '',\n")
+                    f.write("        'PASSWORD': '',\n")
                 else:
                     f.write(f"        'PASSWORD': '{db_password}',\n")
             elif line.strip().startswith("'HOST'"):
                 if database_type == "sqlite3":
-                    f.write(f"        'HOST': '',\n")
+                    f.write("        'HOST': '',\n")
                 else:
-                    f.write(f"        'HOST': 'localhost',\n")
+                    f.write("        'HOST': 'localhost',\n")
             elif line.strip().startswith("'PORT'"):
-                if database_type == "sqlite3":
-                    f.write(f"        'PORT': '',\n")
-                else:
-                    f.write(f"        'PORT': '',\n")
+                # if database_type == "sqlite3":
+                f.write("        'PORT': '',\n")
             else:
                 f.write(line)
 
